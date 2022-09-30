@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap");
+:root {
+  --mainColor: rgb(17, 120, 216);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  /* background: rgb(6, 6, 99); */
+  background: var(--mainColor);
+}
+.wrapper {
+  margin: 50px;
+  display: grid;
+  gap: 15px;
+  z-index: 2;
+  grid-template-columns: repeat(auto-fill, 265px);
+}
+.wrapper li {
+  height: 250px;
+  list-style: none;
+  background: #fff;
+  border-radius: 5px;
+  padding: 15px 20px 20px;
+}
+
+.add-box,
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.add-box .icon {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  border: 2px dashed rgb(24, 129, 214);
+  font-size: 40px;
+  color: var(--mainColor);
+  cursor: pointer;
+}
+
+.add-box p {
+  font-weight: 500;
+  color: var(--mainColor);
+  padding-top: 20px;
+}
+
+/* note */
+
+.wrapper .note {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.note p {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--mainColor);
+}
+.note span {
+  font-size: 14px;
+  color: rgb(63, 61, 66);
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.note .bottom-content {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid rgb(103, 99, 99);
+}
+.bottom-content span {
+  color: rgb(154, 151, 159);
+  font-size: 13px;
+}
+/* .settings {
+  position: relative;
+} */
+.bottom-content .settings i {
+  cursor: pointer;
+  color: rgb(154, 151, 159);
+  font-size: 13px;
+}
+.settings.show .menu {
+  transform: scale(1);
+}
+.settings .menu {
+  position: absolute;
+  bottom: 0;
+  right: -5px;
+  padding: 5px 0px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  transform-origin: bottom right;
+}
+.settings .menu li:hover {
+  background: rgb(239, 236, 236);
+}
+.settings .menu li {
+  height: 25px;
+  font-size: 14px;
+  border-radius: 0px;
+  background: #fff;
+  display: flex;
+  padding: 17px 15px;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+.settings .menu li i {
+  margin-right: 8px;
+}
+
+/* popup css */
+
+.popup-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 3;
+}
+
+.popup-box .popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.popup .content {
+  width: calc(100% - 15px);
+  background: #fff;
+  border-radius: 5px;
+}
+.popup .content header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  border-bottom: 1px solid rgb(230, 227, 227);
+}
+.content header p {
+  font-size: 20px;
+  font-weight: 500;
+}
+.content header i {
+  font-size: 23px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--mainColor);
+}
+.content form {
+  margin: 15px 25px 35px;
+}
+.content form .row {
+  margin-bottom: 20px;
+}
+.content form label {
+  display: block;
+  margin-bottom: 5px;
+}
+.content form :where(input, textarea) {
+  width: 100%;
+  height: 50px;
+  outline: none;
+  padding: 0px 8px;
+}
+.content form textarea {
+  height: 150px;
+  resize: none;
+  padding: 8px 8px;
+}
+.content form button {
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  background: var(--mainColor);
+  color: #fff;
+  font-size: 17px;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+}
+
+.popup-box,
+.popup-box .popup {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+.popup-box.show,
+.popup-box .popup {
+  opacity: 1;
+  pointer-events: auto;
+}
